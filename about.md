@@ -9,7 +9,7 @@ Lets do some cool stuffs using AI!
 ### More Blogs
 
 [Gradient Descent](https://dhakalmahima188.github.io/)
-
+[Back Propagation](https://dhakalmahima188.github.io/)
 
 ### Contact me
 
