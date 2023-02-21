@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Adaline Linear Neuron- Introduction and Implementation in Python
+title: Adaline Linear Neuron implementation in Python
 ---
 
 Artificial neural networks (ANNs) are computational models that are inspired by the structure and function of the biological neural networks in the human brain. One type of ANN is the Adaptive Linear Neuron (Adaline), which was introduced in 1960 by Bernard Widrow and Ted Hoff. In this blog post, you can find an introduction to Adaline linear neuron and demonstrate its implementation in Python.
