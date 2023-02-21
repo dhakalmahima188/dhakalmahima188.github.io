@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Lets do some cool stuffs using AI!
 
-### More Information
+### More Blogs
 
-A place to include any other types of information that you'd like to include about yourself.
+[Gradient Descent](https://dhakalmahima188.github.io/)
+
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[076bct033.mahima@pcampus.edu.np](mailto:email@domain.com)
