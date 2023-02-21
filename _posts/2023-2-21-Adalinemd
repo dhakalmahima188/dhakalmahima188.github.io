@@ -1,0 +1,116 @@
+---
+layout: post
+title: Adaline Linear Neuron- Introduction and Implementation in Python
+---
+
+Artificial neural networks (ANNs) are computational models that are inspired by the structure and function of the biological neural networks in the human brain. One type of ANN is the Adaptive Linear Neuron (Adaline), which was introduced in 1960 by Bernard Widrow and Ted Hoff. In this blog post, you can find an introduction to Adaline linear neuron and demonstrate its implementation in Python.
+
+![_config.yml]({{ site.baseurl }}/images/config.png)
+
+## Introduction
+
+Adaline is a single-layer neural network that uses supervised learning to adjust its weights and bias to minimize the error between its output and the desired output. It consists of input nodes, a linear combiner, an activation function, and an output node. The activation function used in Adaline is linear, and it is used to compute the weighted sum of the inputs and the bias.
+
+The goal of Adaline is to adjust its weights and bias using the gradient descent algorithm to minimize the mean square error between the predicted output and the actual output. This is done by computing the error between the predicted output and the actual output, and then adjusting the weights and bias to reduce this error.
+
+
+```
+1.Load the data using a library such as Pandas.
+
+2.Preprocess the data by performing tasks such as cleaning, normalization, and feature selection.
+
+3.Initialize the weights and bias term to small random values.
+
+4.Calculate the weighted sum of the inputs and weights, and pass it through the linear activation function. This gives the predicted output.
+
+5.Calculate the difference between the predicted output and the actual output. This is the error term.
+
+6.Update the weights and bias term using the error term and the learning rate.
+
+7.Repeat steps 4-6 for a fixed number of epochs or until the error is below a certain threshold.
+
+8.Finally, evaluate the performance of the Adaline algorithm on the test data by calculating metrics such as accuracy, precision, and recall.
+```
+
+## Code
+<a href="https://github.com/dhakalmahima188/Draft.ai/blob/master/Adaline/adaline_implementation.ipynb">Adaline Implemntation</a>
+
+## Implementation of Adaline Linear Neuron in Python<br>
+Now that we have an understanding of what Adaline is and how it works, let's dive into its implementation in Python. For this implementation, we will be using the Scikit-learn library, which provides a simple and efficient implementation of Adaline.
+
+## Step 2: Importing necessary libraries
+We start by importing the necessary libraries such as PyTorch, OpenAI Gym, and NumPy. OpenAI Gym is a toolkit for developing and comparing reinforcement learning algorithms.
+
+```python
+import numpy as np
+from sklearn.linear_model import SGDRegressor
+
+```
+
+## Step 3: Define Model
+The next step is to set up the CartPole environment using the gym.make() function. The reset() function initializes the state of the environment, and the step() function takes an action and returns the new state, reward, and whether the episode has ended.
+
+```python
+class Adaline:
+    def __init__(self, learning_rate=0.01, n_iter=50):
+        self.learning_rate = learning_rate
+        self.n_iter = n_iter
+        self.weights = None
+        self.bias = None
+
+    def fit(self, X, y):
+        n_samples, n_features = X.shape
+        self.weights = np.zeros(n_features)
+        self.bias = 0
+        for _ in range(self.n_iter):
+            y_pred = self.activation(X)
+            error = y - y_pred
+            self.weights += self.learning_rate * np.dot(X.T, error)
+            self.bias += self.learning_rate * np.sum(error)
+
+    def activation(self, X):
+        return np.dot(X, self.weights) + self.bias
+
+    def predict(self, X):
+        return np.where(self.activation(X) >= 0.0, 1, -1)
+
+```
+
+## Step 4: Making Predections
+We can now use our Adaline model to train and predict on a dataset. For this demonstration, we will use the Iris dataset:
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+iris = load_iris()
+X = iris.data[:100, [0, 2]]
+y = iris.target[:100]
+y = np.where(y == 0, -1, 1)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+```
+
+## Step 5: Normalize the data
+
+
+```python
+X_train_std = (X_train - X_train.mean()) / X_train.std()
+X_test_std = (X_test - X_train.mean()) / X_train.std()
+```
+
+## Step 6: Train the Adaline model and compute accuracy
+
+
+
+```python
+accuracy = np.sum(y_test == y_pred) / len(y_test)
+print("Accuracy:", accuracy)
+```
+The above code loads the Iris dataset and extracts the first two features of the first 100 samples. The target variable is converted to -1 and 1 to be used with the Adaline model. The data is split into training and testing sets and normalized. The Adaline model is trained on the training set and used to predict on the testing set. The accuracy is calculated as the number of correct predictions divided by the total number of predictions.
+
+
+
+
+## Conclusion:
+In conclusion, Adaline is a linear regression model that uses the gradient descent algorithm to minimize the error between the predicted output and the actual output. It is a simple yet powerful model that can be implemented easily in Python. It can be used for binary classification problems and can achieve high accuracy with appropriate tuning of hyperparameters.
