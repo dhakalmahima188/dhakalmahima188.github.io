@@ -8,8 +8,9 @@ Lets do some cool stuffs using AI!
 
 ### More Blogs
 
-[Gradient Descent](https://dhakalmahima188.github.io/)
-[Back Propagation](https://dhakalmahima188.github.io/)
+[Gradient Descent](https://dhakalmahima188.github.io/)<br>
+[Back Propagation](https://dhakalmahima188.github.io/)<br>
+[Django Rest Framework](https://dhakalmahima188.github.io/)<br>
 
 ### Contact me
 
