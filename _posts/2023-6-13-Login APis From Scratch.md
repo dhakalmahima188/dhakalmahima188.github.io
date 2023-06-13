@@ -67,7 +67,7 @@ python manage.py migrate
 
 ### APIs
 #### Employees
-
+```table
 | Method | API                | Function             |
 | ------ | ------------------ | -------------------- |
 | POST   | createTable/       | Create employees     |
@@ -76,7 +76,7 @@ python manage.py migrate
 | GET    | get_employee/id    | Get employee by ID   |
 | POST   | add_employee/      | Add new employee     |
 | POST   | delete_employee/id | Delete employee      |
-
+```
 
 #### Token Generation
 
