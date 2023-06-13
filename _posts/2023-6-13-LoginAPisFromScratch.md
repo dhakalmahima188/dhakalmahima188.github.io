@@ -6,16 +6,14 @@
 
 #### Setup Virtual Environment
 
-```shell
-
+```
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 
 #### Install Django
-```shell
-pip install django
+```pip install django
 django-admin startproject loginproject
 python manage.py runserver
 python manage.py startapp loginapp
@@ -23,15 +21,13 @@ python manage.py createsuperuser
 ```
 
 #### Apply database migrations
-```shell
-python manage.py makemigrations
+```python manage.py makemigrations
 python manage.py migrate
 ```
 
 
 ### Establish database connection:
-```shell
-conn = psycopg2.connect(
+```conn = psycopg2.connect(
            host="localhost",
            port="5432",
            database="postgres",
@@ -43,13 +39,11 @@ conn = psycopg2.connect(
 
 ### Create Table
 #### urls.py
-```shell
-path('createTable/', CreateTableView.as_view(), name='createTable'),
+```path('createTable/', CreateTableView.as_view(), name='createTable'),
 ```
 
 #### views.py
-```shell
-cur.execute('''CREATE TABLE IF NOT EXISTS employees
+```cur.execute('''CREATE TABLE IF NOT EXISTS employees
                        (id SERIAL PRIMARY KEY,
                        username TEXT NOT NULL,
                        email TEXT NOT NULL,
@@ -58,13 +52,11 @@ cur.execute('''CREATE TABLE IF NOT EXISTS employees
 
 ### Update Table
 #### urls.py
-```shell
-path('UpdateTable/', UpdateTableView.as_view(), name='UpdateTable'),
+```path('UpdateTable/', UpdateTableView.as_view(), name='UpdateTable'),
 ```
 
 #### views.py
-```shell
-dict1 = {
+```dict1 = {
            "username": "username",
            "password": "password",
            "email": "email"
@@ -113,11 +105,9 @@ dict1 = {
 
 ### JWT token generation
 
-```shell
-```
+``````
 
-```shell
-token_lifetime = timedelta(days=1)
+```token_lifetime = timedelta(days=1)
 token_expiry = datetime.now() + token_lifetime
 access_token = jwt.encode(
                 {
@@ -138,13 +128,11 @@ registration_link = base_url + '?' + urlencode(query_params)
 
 #### JWT token Decode
 
-```shell
-token = request.GET.get('token')
+```token = request.GET.get('token')
 decoded_token = jwt.decode(token, 'secret9742357373', algorithms=['HS256'])
 email = decoded_token.get('email')
 
 ```
 ### Send Email Invitation:
-```shell
-send_mail(subject, message, from_email, recipient_list)
+```send_mail(subject, message, from_email, recipient_list)
 ```
